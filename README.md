@@ -23,6 +23,9 @@ Incident management service application developed using React, Node.js, Express.
 - [Bcrypt.js](https://www.npmjs.com/package/bcryptjs) - For hashing passwords
 - [helmet](https://helmetjs.github.io/) Basic Security Features thanks to Helmet.
 - [Morgan](https://github.com/expressjs/morgan) To log http request we use the express middleware morgan.
+- [Chai](https://www.chaijs.com/) Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
+- [Sinon](https://sinonjs.org/) Standalone test spies, stubs and mocks for JavaScript.
+Works with any unit testing framework.
 
 ## Features
 -  Create an incident as an admin
