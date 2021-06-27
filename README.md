@@ -37,7 +37,7 @@ Works with any unit testing framework.
 paging)
 - Delete an incident
 - Error management with descriptive messages
-- Descriptive color indicators for bug type & status
+- Descriptive color indicators for incident type & status
 - Toast notifications for actions: creating incidents etc.
 - Loading spinners for fetching processes
 - Dark mode toggle local storage save
