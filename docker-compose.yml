@@ -1,0 +1,57 @@
+version: "3"
+services:
+  postgres:
+    image: "postgres:latest"
+    container_name: "postgres"
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: ims
+    networks:
+      - ims-network
+  web:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+    ports:
+      - 80:80
+    restart: on-failure
+    container_name: web
+    networks:
+      - ims-network
+  api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - 3001:3001
+    restart: on-failure
+    container_name: api
+    volumes:
+      # - /app/node_modules # Inside the container, don't try to override this folder, just leave as is
+      - ./server:/app # Look at the server directory and copy everything into the app folder in the container
+    command: npm start
+    environment:
+      PGTYPE: postgres
+      PGUSER: postgres
+      PGPASSWORD: password
+      PGHOST: host.docker.internal
+      PGDATABASE: ims
+      PGPORT: 5432
+      PORT: 3001
+      JWT_SECRET: ABCD
+      NODE_ENV: production
+    networks:
+      - ims-network
+    links:
+      - postgres
+    depends_on:
+      - postgres
+networks:
+  ims-network:
+    driver: bridge
