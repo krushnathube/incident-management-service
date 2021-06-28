@@ -1,15 +1,15 @@
 # Specify a base image
 FROM node:16.3.0-alpine AS alpine
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 # Install dependencies
-COPY package*.json .
+COPY package*.json ./
 # Resolve bcrypt installation issue
 # RUN apk --no-cache add --virtual builds-deps build-base python
 
 RUN npm install 
-COPY . .
+COPY . ./
 
 # build command
 RUN npm run build
