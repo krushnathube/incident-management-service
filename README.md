@@ -10,7 +10,7 @@ Incident management service application developed using React, Node.js, Express.
 - [Redux Thunk](https://github.com/reduxjs/redux-thunk) - Middleware which allows action creators to return a function
 - [React Router](https://reactrouter.com/) - Library for general routing & navigation
 - [React Hook Form](https://react-hook-form.com/) - Library for flexible & extensible forms
-- [Material-UI w/ lots of CSS customisations](https://material-ui.com/) - UI library
+- [Material-UI](https://material-ui.com/) - UI library
 - [Yup](https://github.com/jquense/yup) - Form validation tool
 - [date-fns](https://date-fns.org/) - Library for manipulating/formatting of timestamps
 
@@ -44,21 +44,31 @@ paging)
 - Proper responsive UI for all screens
 - Unit test cases
 
-## TODO/Improvements
-- Front end unit test cases
-- Integrate Swagger document for API documentation
-
 #### Prerequisites
-- [Node.js](https://nodejs.org/en/) - Runtime environment for JS
-- [PostgreSQL](https://www.postgresql.org/) - Opens-source SQL database to store data
-- [Docker](https://www.docker.com/products/docker-desktop) - Docker Desktop
+- [Node.js](https://nodejs.org/en/) v14.15.4 - Runtime environment for JS
+- [PostgreSQL](https://www.postgresql.org/) psql (PostgreSQL) 13.3 (Debian 13.3-1.pgdg100+1) - Opens-source SQL database to store data
+- [Docker](https://www.docker.com/products/docker-desktop) version 20.10.7, build f0df350 - Docker Desktop
 The fastest way to containerize applications on your desktop
 
 #### Docker
-Up Incident management service application:
+Deploy Incident management service application:
 ```
 docker-compose up -d
 ```
+
+#### Access
+Access incident management service application using below url: 
+```
+http://localhost/
+
+```
+Signup with multiple users and play around. Every user can perform both roles admin and user.
+Example:
+- If user A and B signup:
+1. all incidents created by user A as admin
+2. all incidents assined to user A by B as user.
+
+Note: This application deployment tested on MacOS.
 
 #### Client
 Run development client:
@@ -137,3 +147,12 @@ npm run lint
 ![](https://github.com/krushnathube/incident-management-service/blob/master/screenshots/close-incident.png)
 ![](https://github.com/krushnathube/incident-management-service/blob/master/screenshots/assignee-list.png)
 ![](https://github.com/krushnathube/incident-management-service/blob/master/screenshots/login-black.png)
+
+## TODO or Improvements
+- Front end unit test cases
+- e2e test cases.
+- Integrate Swagger document for API documentation
+- Testing on windows
+- Featurewise improvement.
+- Pagination implementation.
+- Fix bug Updated coloumn in incident list.
